@@ -1,29 +1,29 @@
 package ru.netology.stats;
 
-import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 class StatsServiceTest {
-    @ParameterizedTest
-    void shouldCalculateSum() {
+    @Test
+    void calculateSum() {
         StatsService service = new StatsService();
 
-        int [] value = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long [] values = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 180;
-        long actual = service.calculate(value);
+        long actual = service.calculateSum(values);
 
         assertEquals(expected, actual);
 
     }
 
-    @ParameterizedTest
-    void shouldCalculateAverage() {
-        StatsService service = new StatsService():
+    @Test
+    void calculateAverage() {
+        StatsService service = new StatsService();
 
-        int [] value = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long [] values = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 15;
-        long actual = service.calculate(average);
+        long actual = service.calculateAverage(values);
 
         assertEquals(expected, actual);
 
