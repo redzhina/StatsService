@@ -4,57 +4,62 @@ public class StatsService {
     public long calculateSum(long[] values) {
         long sum = 0; // начинаем с нуля
         for (long value : values) {
-        sum += value;
+            sum += value;
         }
         return sum;
-    }
-    public long calculateAverage(long[] values) {
+}
+    public long average(long[] values) {
+        long sum = 0; // начинаем с нуля
         long average = 0;
         for (long value : values) {
-            average = (average + value) / 12;
+            sum += value;
+            average = sum  / 12;
         }
         return average;
- }
-    public long findMax(long[] values) {
-        long currentMax = values[0];
-        for (long value : values) {
-             if (currentMax < value) {
-                 currentMax = value;
+}
+        public long findMax (long[] values){
+            long currentMax = values[0];
+            for (long value : values) {
+                if (currentMax < value) {
+                    currentMax = value;
                 }
             }
-            return currentMax;}
+            return currentMax;
+        }
 
 
-    public long findMin(long[] values) {
-        long currentMin = values[0];
-        for (long value : values) {
-            if (currentMin > value) {
-                currentMin = value;
+        public long findMin ( long[] values){
+            long currentMin = values[0];
+            for (long value : values) {
+                if (currentMin > value) {
+                    currentMin = value;
+                }
             }
+            return currentMin;
         }
-        return currentMin;}
-    public long calculateBelowAverage(long[] values) {
-        long average = 0;
-        for (long value : values) {
-            average = (average + value) / 12;
-            long belowAverage = values[0];
-        if (belowAverage < average) {
-                average += 1;
+        public long calculateBelowAverage ( long[] values){
+            long average = 0;
+            for (long value : values) {
+                average = (average + value) / 12;
+                long belowAverage = values[0];
+                if (belowAverage < average) {
+                    average += 1;
+                }
             }
+            return average;
         }
-        return average;}
-    public long calculateOverAverage(long[] values) {
-        long average = 0;
-        for (long value : values) {
-            average = (average + value) / 12;
-            long overAverage = values[0];
-        if (overAverage > average) {
-                average += 1;
+        public long calculateOverAverage ( long[] values){
+            long average = 0;
+            for (long value : values) {
+                average = (average + value) / 12;
+                long overAverage = values[0];
+                if (overAverage > average) {
+                    average += 1;
+                }
             }
+            return average;
         }
-        return average;
     }
-}
 
 
 
