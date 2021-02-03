@@ -41,28 +41,23 @@ public class StatsService {
     }
 
     public long findBelowAverage(long[] values) {
-        long sum = 0;
         long belowAverage = 0;
         for (long value : values) {
-            sum += value;
-            long average = sum / 12;
-            if (value < average) {
+            if (value < average(values)) {
                 belowAverage += 1;
             }
         }
         return belowAverage;
     }
 
-    public long calculateOverAverage(long[] values) {
-        long average = 0;
+    public long findOverAverage(long[] values) {
+        long overAverage = 0;
         for (long value : values) {
-            average = (average + value) / 12;
-            long overAverage = values[0];
-            if (overAverage > average) {
-                average += 1;
+            if (value > average(values)) {
+                overAverage += 1;
             }
         }
-        return average;
+        return overAverage;
     }
 }
 
