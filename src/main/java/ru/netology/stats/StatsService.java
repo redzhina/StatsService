@@ -10,35 +10,35 @@ public class StatsService {
     }
 
     public long average(long[] values) {
-        long sum = 0; // начинаем с нуля
-        long average = 0;
-        for (long value : values) {
-            sum += value;
-            average = sum / 12;
-        }
+        long average = calculateSum(values) / 12;
         return average;
     }
 
     public long findMax(long[] values) {
-        long currentMax = values[0];
-        for (long value : values) {
-            if (currentMax < value) {
-                currentMax = value;
+        long max = 0;
+        long maxIndex = 0;
+        for (int i = 0; i < values.length; i++) {
+            if (values[i] >= max) {
+                max = values[i];
+                maxIndex = i;
             }
         }
-        return currentMax;
+        return maxIndex;
     }
 
 
     public long findMin(long[] values) {
-        long currentMin = values[0];
-        for (long value : values) {
-            if (currentMin > value) {
-                currentMin = value;
+        long min = values[0];
+        long minIndex = 0;
+        for (int i = 1; i < values.length; i++) {
+            if (values[i] < min) {
+                min = values[i];
+                minIndex = i;
             }
         }
-        return currentMin;
+        return minIndex;
     }
+    
 
     public long findBelowAverage(long[] values) {
         long belowAverage = 0;
