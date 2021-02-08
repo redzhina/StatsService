@@ -39,11 +39,12 @@ public class StatsService {
         return minIndex;
     }
 
-long average = 15;
+
     public long findBelowAverage(long[] values) {
+        long avg = calculateSum(values) / 12;
         long belowAverage = 0;
         for (long value : values) {
-            if (value < average) {
+            if (value < avg) {
                 belowAverage += 1;
             }
         }
@@ -51,9 +52,10 @@ long average = 15;
     }
 
     public long findOverAverage(long[] values) {
+        long avg = calculateSum(values) / 12;
         long overAverage = 0;
         for (long value : values) {
-            if (value > average) {
+            if (value > avg) {
                 overAverage += 1;
             }
         }
